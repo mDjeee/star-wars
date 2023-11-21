@@ -1,0 +1,12 @@
+<mat-toolbar class="header">
+  <p class="title">
+    <a class="list__item-link" [routerLink]="['home']" [routerLinkActive]="'active'">Star Wars</a>
+  </p>
+  <nav class="nav">
+    <ul class="list">
+      <li *ngFor="let item of nav" class="list__item">
+        <a class="list__item-link" [routerLink]="[item]" [routerLinkActive]="'active'">{{ item }}</a>
+      </li>
+    </ul>
+  </nav>
+</mat-toolbar>

@@ -1,0 +1,42 @@
+.header {
+  display: flex;
+  gap: 1rem;
+  padding: 1rem;
+  background-color: #011132;
+  color: #ffffff;
+}
+
+.title {
+  margin: 0;
+  font-size: 24px;
+}
+
+.nav {
+}
+
+.list {
+  display: flex;
+  gap: 1rem;
+  list-style-type: none;
+
+  &__item {
+    border-radius: 3px;
+
+    &:hover {
+      background-color: #ff4775;
+      cursor: pointer;
+    }
+
+    &-link {
+      padding: 5px;
+      text-transform: capitalize;
+      text-decoration: none;
+      color: white;
+    }
+  }
+}
+
+.active {
+  background-color: #ff4775;
+  border-radius: 3px;
+}

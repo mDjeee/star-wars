@@ -1,0 +1,33 @@
+.main {
+  min-height: calc(100% - 64px);
+  background-image: url('../../../../assets/main.jpg');
+  background-position: 50% 50%;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.content {
+  padding-top: 2rem;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  gap: 50px;
+  justify-content: space-around;
+  color: #ffffff;
+  border-radius: 1rem;
+
+  &__text {
+    width: 300px;
+    text-align: justify;
+    padding: 1rem;
+    border-radius: 0.5rem;
+    margin-bottom: 10px;
+    text-indent: 10px;
+    box-shadow:
+      rgba(red, 0.2) 0 0 40px 5px,
+      rgba(#ff4f81, 1) 0 0 0 1px,
+      rgba(black, 0.66) 0 30px 30px 0,
+      inset #424242 0 0 0 5px,
+      inset #ff4f81 0 0 0 6px;
+  }
+}
