@@ -1,11 +1,11 @@
 import { Injectable } from "@angular/core";
 import { Actions, createEffect, ofType } from "@ngrx/effects";
 import { catchError, map, of, switchMap } from "rxjs";
-import {getFilms, getFilmsFail, getFilmsSuccess} from "./actions";
-import {FilmsService} from "../service/films.service";
+import { getFilms, getFilmsFail, getFilmsSuccess } from "./actions";
+import { FilmsService } from "../service/films.service";
 
 @Injectable()
-export class PeopleEffects {
+export class FilmsEffects {
   constructor(
     private actions$: Actions,
     private filmsService: FilmsService,
@@ -15,7 +15,7 @@ export class PeopleEffects {
     ofType(getFilms),
     switchMap(({page}) => {
       return this.filmsService.getFilms(page).pipe(
-        map((people) => {
+        map((films) => {
             return getFilmsSuccess({ films });
           },
           catchError(() => of(getFilmsFail()))
