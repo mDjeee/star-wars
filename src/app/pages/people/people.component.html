@@ -1,5 +1,5 @@
 <ng-container *ngIf="(peopleFacade.people$ | async) as peopleResponse">
-  <mat-progress-bar *ngIf="peopleResponse.loading" mode="indeterminate" value="40" class="progress"></mat-progress-bar>
+  <mat-progress-bar *ngIf="peopleResponse.loading" mode="indeterminate"></mat-progress-bar>
 
   <div class="controls">
     <button
