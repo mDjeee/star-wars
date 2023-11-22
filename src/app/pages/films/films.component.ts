@@ -31,7 +31,8 @@ export class FilmsComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.filmsFacade.getPeople(1);
+    const res = this.filmsFacade.getPeople(1);
+    console.log(res);
   }
 
   nextPeople(page: string) {

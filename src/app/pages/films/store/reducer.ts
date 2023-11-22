@@ -28,7 +28,7 @@ export const FilmsReducer = createReducer(
     count: films.count,
     next: films.next,
     previous: films.previous,
-    people: films.results,
+    films: films.results,
     loading: false,
   })),
 

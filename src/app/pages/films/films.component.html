@@ -1,43 +1,37 @@
-<ng-container *ngIf="(peopleFacade.people$ | async) as peopleResponse">
-  <mat-progress-bar *ngIf="peopleResponse.loading" mode="indeterminate"></mat-progress-bar>
+<ng-container *ngIf="(filmsFacade.films$ | async) as filmsResponse">
+  <mat-progress-bar *ngIf="filmsResponse.loading" mode="indeterminate"></mat-progress-bar>
 
   <div class="controls">
     <button
       mat-raised-button
       color="primary"
-      [disabled]="!peopleResponse.previous"
-      (click)=" peopleResponse.previous ? nextPeople(peopleResponse.previous) : ''"
+      [disabled]="!filmsResponse.previous"
+      (click)=" filmsResponse.previous ? nextPeople(filmsResponse.previous) : ''"
     >Prev</button>
     <button
       mat-raised-button
       color="primary"
-      [disabled]="!peopleResponse.next"
-      (click)="peopleResponse.next ? nextPeople(peopleResponse.next) : ''"
+      [disabled]="!filmsResponse.next"
+      (click)="filmsResponse.next ? nextPeople(filmsResponse.next) : ''"
     >Next</button>
   </div>
 
-  <div *ngIf="!peopleResponse.loading" class="container" @inOutPaneAnimation>
-    <mat-card *ngFor="let person of peopleResponse.people" class="card">
+  <div *ngIf="!filmsResponse.loading" class="container" @inOutPaneAnimation>
+    <mat-card *ngFor="let film of filmsResponse.films" class="card">
       <mat-card-header>
         <mat-card-title>
-          {{ person.name }}
+          {{ film.title }}
         </mat-card-title>
       </mat-card-header>
       <mat-divider></mat-divider>
       <mat-card-content class="card__content">
         <div class="ch">
-          <p>Gender</p>
-          <p>Hair color</p>
-          <p>Eye color</p>
-          <p>Height</p>
-          <p>Mass</p>
+          <p>Director</p>
+          <p>Producer</p>
         </div>
         <div>
-          <p class="cd">{{ person.gender }}</p>
-          <p class="cd">{{ person.hair_color }}</p>
-          <p class="cd">{{ person.eye_color }}</p>
-          <p class="cd">{{ person.height }}</p>
-          <p class="cd">{{ person.mass }}</p>
+          <p class="cd">{{ film.director }}</p>
+          <p class="cd">{{ film.producer }}</p>
         </div>
       </mat-card-content>
     </mat-card>
