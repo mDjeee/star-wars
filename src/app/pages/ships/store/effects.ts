@@ -11,7 +11,7 @@ export class ShipsEffects {
     private shipsService: ShipsService,
   ) { }
 
-  getPlanets$ = createEffect(() => this.actions$.pipe(
+  getShips$ = createEffect(() => this.actions$.pipe(
     ofType(getShips),
     switchMap(({page}) => {
       return this.shipsService.getShips(page).pipe(

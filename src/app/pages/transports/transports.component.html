@@ -1,1 +1,58 @@
-<p>transports works!</p>
+<ng-container *ngIf="(transportsFacade.transports$ | async) as response">
+    <mat-progress-bar *ngIf="response.loading" mode="indeterminate"></mat-progress-bar>
+  
+    <div class="controls">
+      <button
+        mat-raised-button
+        color="primary"
+        [disabled]="!response.previous"
+        (click)=" response.previous ? nextPeople(response.previous) : ''"
+      >Prev</button>
+      <button
+        mat-raised-button
+        color="primary"
+        [disabled]="!response.next"
+        (click)="response.next ? nextPeople(response.next) : ''"
+      >Next</button>
+    </div>
+  
+    <div *ngIf="!response.loading" class="container" @inOutPaneAnimation>
+      <mat-card *ngFor="let ship of response.transports" class="card">
+        <mat-card-header>
+          <mat-card-title>
+            {{ ship.name }}
+          </mat-card-title>
+        </mat-card-header>
+        <mat-divider></mat-divider>
+        <mat-card-content class="card__content">
+          <table>
+            <tr>
+              <td>Model</td>
+              <td>{{ ship.model }}</td>
+            </tr>
+            <tr>
+              <td>Crew</td>
+              <td>{{ ship.crew }}</td>
+            </tr>
+            <tr>
+              <td>Length</td>
+              <td>{{ ship.length }}</td>
+            </tr>
+            <tr>
+              <td>Passenger</td>
+              <td>{{ ship.passengers }}</td>
+            </tr>
+            <tr>
+              <td>Cargo capacity</td>
+              <td>{{ ship.cargo_capacity }}</td>
+            </tr>
+            <tr>
+              <td>Cost</td>
+              <td>{{ ship.cost_in_credits }}</td>
+            </tr>
+          </table>
+        </mat-card-content>
+      </mat-card>
+    </div>
+  </ng-container>
+  

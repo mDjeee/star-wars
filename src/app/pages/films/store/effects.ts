@@ -11,7 +11,7 @@ export class FilmsEffects {
     private filmsService: FilmsService,
   ) { }
 
-  getPeople$ = createEffect(() => this.actions$.pipe(
+  getFilms$ = createEffect(() => this.actions$.pipe(
     ofType(getFilms),
     switchMap(({page}) => {
       return this.filmsService.getFilms(page).pipe(

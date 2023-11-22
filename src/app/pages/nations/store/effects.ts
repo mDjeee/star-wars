@@ -11,7 +11,7 @@ export class NationsEffects {
     private nationsService: NationsService,
   ) { }
 
-  getPeople$ = createEffect(() => this.actions$.pipe(
+  getNations$ = createEffect(() => this.actions$.pipe(
     ofType(getNations),
     switchMap(({page}) => {
       return this.nationsService.getNations(page).pipe(

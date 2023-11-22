@@ -9,6 +9,8 @@ import { planets, PlanetsReducer, PlanetsState } from "../pages/planets/store/re
 import { PlanetsEffects } from "../pages/planets/store/effect";
 import { ships, ShipsReducer, ShipsState } from "../pages/ships/store/reducer";
 import { ShipsEffects } from "../pages/ships/store/effects";
+import { transports, TransportsReducer, TransportsState } from "../pages/transports/store/reducer";
+import { TransportsEffects } from "../pages/transports/store/effects";
 
 export interface State {
   [people]: PeopleState,
@@ -16,6 +18,7 @@ export interface State {
   [nations]: NationsState,
   [planets]: PlanetsState,
   [ships]: ShipsState,
+  [transports]: TransportsState,
 }
 
 export const reducers: ActionReducerMap<State> = {
@@ -24,6 +27,7 @@ export const reducers: ActionReducerMap<State> = {
   [nations]: NationsReducer,
   [planets]: PlanetsReducer,
   [ships]: ShipsReducer,
+  [transports]: TransportsReducer,
 }
 
 export const effects = [
@@ -32,4 +36,5 @@ export const effects = [
   NationsEffects,
   PlanetsEffects,
   ShipsEffects,
+  TransportsEffects,
 ]
