@@ -1,5 +1,5 @@
-import { animate, style, transition, trigger } from '@angular/animations';
-import { Component } from '@angular/core';
+import { animate, state, style, transition, trigger } from '@angular/animations';
+import { Component, HostListener } from '@angular/core';
 import { ShipsFacade } from './store/facade';
 
 @Component({
@@ -22,7 +22,7 @@ import { ShipsFacade } from './store/facade';
           style({ opacity: 0, transform: "translateX(100%)" })
         )
       ])
-    ])
+    ]),
   ]
 })
 export class ShipsComponent {
