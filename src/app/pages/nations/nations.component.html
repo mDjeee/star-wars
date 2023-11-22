@@ -1,1 +1,44 @@
-<p>nations works!</p>
+<ng-container *ngIf="(nationsFacade.nations$ | async) as filmsResponse">
+    <mat-progress-bar *ngIf="filmsResponse.loading" mode="indeterminate"></mat-progress-bar>
+  
+    <div class="controls">
+      <button
+        mat-raised-button
+        color="primary"
+        [disabled]="!filmsResponse.previous"
+        (click)=" filmsResponse.previous ? nextPeople(filmsResponse.previous) : ''"
+      >Prev</button>
+      <button
+        mat-raised-button
+        color="primary"
+        [disabled]="!filmsResponse.next"
+        (click)="filmsResponse.next ? nextPeople(filmsResponse.next) : ''"
+      >Next</button>
+    </div>
+  
+    <div *ngIf="!filmsResponse.loading" class="container" @inOutPaneAnimation>
+      <mat-card *ngFor="let film of filmsResponse.nations" class="card">
+        <mat-card-header>
+          <mat-card-title>
+            {{ film.name }}
+          </mat-card-title>
+        </mat-card-header>
+        <mat-divider></mat-divider>
+        <mat-card-content class="card__content">
+          <div class="ch">
+            <p>Classification</p>
+            <p>Designation</p>
+            <p>Average height</p>
+            <p>Average lifespan</p>
+          </div>
+          <div>
+            <p class="cd">{{ film.classification }}</p>
+            <p class="cd">{{ film.designation }}</p>
+            <p class="cd">{{ film.average_height }}</p>
+            <p class="cd">{{ film.average_lifespan }}</p>
+          </div>
+        </mat-card-content>
+      </mat-card>
+    </div>
+  </ng-container>
+  

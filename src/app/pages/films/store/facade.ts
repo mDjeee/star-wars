@@ -15,7 +15,7 @@ export class FilmsFacade {
 
   public films$ = this.store.pipe(select(films$));
 
-  getPeople(page: number): void {
+  getFilms(page: number): void {
     this.store.dispatch(getFilms({ page }));
   }
 }

@@ -1,0 +1,35 @@
+.container {
+    margin-top: 1rem;
+    padding: 0 1rem;
+    display: flex;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+  }
+  
+  .card {
+    width: 200px;
+    color: #ffffff;
+    border: 1px solid #ff4775;
+    border-radius: 1rem;
+    background-color: #000022;
+    &__content {
+      margin-top: 1rem;
+      display: flex;
+      justify-content: space-between;
+    }
+  }
+  
+  .controls {
+    display: flex;
+    justify-content: space-between;
+    padding: 1rem;
+  }
+  
+  .cd {
+    text-align: end;
+  }
+  
+  .wrapper {
+    padding: 1rem;
+  }
+  

@@ -1,6 +1,5 @@
 import {Component, OnInit} from '@angular/core';
 import {animate, style, transition, trigger} from "@angular/animations";
-import {PeopleFacade} from "../people/store/facade";
 import {FilmsFacade} from "./store/facade";
 
 @Component({
@@ -31,8 +30,7 @@ export class FilmsComponent implements OnInit {
   }
 
   ngOnInit() {
-    const res = this.filmsFacade.getPeople(1);
-    console.log(res);
+    const res = this.filmsFacade.getFilms(1);
   }
 
   nextPeople(page: string) {
@@ -40,6 +38,6 @@ export class FilmsComponent implements OnInit {
       return;
     }
     const nextPage = +page.slice(-1);
-    this.filmsFacade.getPeople(nextPage);
+    this.filmsFacade.getFilms(nextPage);
   }
 }
