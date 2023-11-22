@@ -5,6 +5,11 @@ import {NotFoundComponent} from "./shared/components/not-found/not-found.compone
 
 const routes: Routes = [
   {
+    path: '',
+    redirectTo: '/home',
+    pathMatch: 'full',
+  },
+  {
     path: 'home',
     component: HomeComponent,
   },
@@ -37,11 +42,6 @@ const routes: Routes = [
     path: 'nations',
     loadChildren: () => import('./pages/nations/nations.module').then(m => m.NationsModule),
     title: 'Nations',
-  },
-  {
-    path: '',
-    redirectTo: '/home',
-    pathMatch: 'full',
   },
   {
     path: 'not-found',
