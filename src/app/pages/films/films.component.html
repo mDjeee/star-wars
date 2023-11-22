@@ -1,23 +1,23 @@
-<ng-container *ngIf="(filmsFacade.films$ | async) as filmsResponse">
-  <mat-progress-bar *ngIf="filmsResponse.loading" mode="indeterminate"></mat-progress-bar>
+<ng-container *ngIf="(filmsFacade.films$ | async) as response">
+  <mat-progress-bar *ngIf="response.loading" mode="indeterminate"></mat-progress-bar>
 
   <div class="controls">
     <button
       mat-raised-button
       color="primary"
-      [disabled]="!filmsResponse.previous"
-      (click)=" filmsResponse.previous ? nextPeople(filmsResponse.previous) : ''"
+      [disabled]="!response.previous"
+      (click)=" response.previous ? nextPeople(response.previous) : ''"
     >Prev</button>
     <button
       mat-raised-button
       color="primary"
-      [disabled]="!filmsResponse.next"
-      (click)="filmsResponse.next ? nextPeople(filmsResponse.next) : ''"
+      [disabled]="!response.next"
+      (click)="response.next ? nextPeople(response.next) : ''"
     >Next</button>
   </div>
 
-  <div *ngIf="!filmsResponse.loading" class="container" @inOutPaneAnimation>
-    <mat-card *ngFor="let film of filmsResponse.films" class="card">
+  <div *ngIf="!response.loading" class="container" @inOutPaneAnimation>
+    <mat-card *ngFor="let film of response.films" class="card">
       <mat-card-header>
         <mat-card-title>
           {{ film.title }}

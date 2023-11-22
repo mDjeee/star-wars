@@ -1,23 +1,23 @@
-<ng-container *ngIf="(peopleFacade.people$ | async) as peopleResponse">
-  <mat-progress-bar *ngIf="peopleResponse.loading" mode="indeterminate"></mat-progress-bar>
+<ng-container *ngIf="(peopleFacade.people$ | async) as response">
+  <mat-progress-bar *ngIf="response.loading" mode="indeterminate"></mat-progress-bar>
 
   <div class="controls">
     <button
       mat-raised-button
       color="primary"
-      [disabled]="!peopleResponse.previous"
-      (click)=" peopleResponse.previous ? nextPeople(peopleResponse.previous) : ''"
+      [disabled]="!response.previous"
+      (click)=" response.previous ? nextPeople(response.previous) : ''"
     >Prev</button>
     <button
       mat-raised-button
       color="primary"
-      [disabled]="!peopleResponse.next"
-      (click)="peopleResponse.next ? nextPeople(peopleResponse.next) : ''"
+      [disabled]="!response.next"
+      (click)="response.next ? nextPeople(response.next) : ''"
     >Next</button>
   </div>
 
-  <div *ngIf="!peopleResponse.loading" class="container" @inOutPaneAnimation>
-    <mat-card *ngFor="let person of peopleResponse.people" class="card">
+  <div *ngIf="!response.loading" class="container" @inOutPaneAnimation>
+    <mat-card *ngFor="let person of response.people" class="card">
       <mat-card-header>
         <mat-card-title>
           {{ person.name }}

@@ -1,26 +1,26 @@
-<ng-container *ngIf="(nationsFacade.nations$ | async) as filmsResponse">
-    <mat-progress-bar *ngIf="filmsResponse.loading" mode="indeterminate"></mat-progress-bar>
-  
+<ng-container *ngIf="(nationsFacade.nations$ | async) as response">
+    <mat-progress-bar *ngIf="response.loading" mode="indeterminate"></mat-progress-bar>
+
     <div class="controls">
       <button
         mat-raised-button
         color="primary"
-        [disabled]="!filmsResponse.previous"
-        (click)=" filmsResponse.previous ? nextPeople(filmsResponse.previous) : ''"
+        [disabled]="!response.previous"
+        (click)=" response.previous ? nextPeople(response.previous) : ''"
       >Prev</button>
       <button
         mat-raised-button
         color="primary"
-        [disabled]="!filmsResponse.next"
-        (click)="filmsResponse.next ? nextPeople(filmsResponse.next) : ''"
+        [disabled]="!response.next"
+        (click)="response.next ? nextPeople(response.next) : ''"
       >Next</button>
     </div>
-  
-    <div *ngIf="!filmsResponse.loading" class="container" @inOutPaneAnimation>
-      <mat-card *ngFor="let film of filmsResponse.nations" class="card">
+
+    <div *ngIf="!response.loading" class="container" @inOutPaneAnimation>
+      <mat-card *ngFor="let nation of response.nations" class="card">
         <mat-card-header>
           <mat-card-title>
-            {{ film.name }}
+            {{ nation.name }}
           </mat-card-title>
         </mat-card-header>
         <mat-divider></mat-divider>
@@ -32,13 +32,12 @@
             <p>Average lifespan</p>
           </div>
           <div>
-            <p class="cd">{{ film.classification }}</p>
-            <p class="cd">{{ film.designation }}</p>
-            <p class="cd">{{ film.average_height }}</p>
-            <p class="cd">{{ film.average_lifespan }}</p>
+            <p class="cd">{{ nation.classification }}</p>
+            <p class="cd">{{ nation.designation }}</p>
+            <p class="cd">{{ nation.average_height }}</p>
+            <p class="cd">{{ nation.average_lifespan }}</p>
           </div>
         </mat-card-content>
       </mat-card>
     </div>
   </ng-container>
-  

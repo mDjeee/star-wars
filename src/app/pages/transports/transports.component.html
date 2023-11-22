@@ -1,6 +1,6 @@
 <ng-container *ngIf="(transportsFacade.transports$ | async) as response">
     <mat-progress-bar *ngIf="response.loading" mode="indeterminate"></mat-progress-bar>
-  
+
     <div class="controls">
       <button
         mat-raised-button
@@ -15,12 +15,12 @@
         (click)="response.next ? nextPeople(response.next) : ''"
       >Next</button>
     </div>
-  
+
     <div *ngIf="!response.loading" class="container" @inOutPaneAnimation>
-      <mat-card *ngFor="let ship of response.transports" class="card">
+      <mat-card *ngFor="let transport of response.transports" class="card">
         <mat-card-header>
           <mat-card-title>
-            {{ ship.name }}
+            {{ transport.name }}
           </mat-card-title>
         </mat-card-header>
         <mat-divider></mat-divider>
@@ -28,31 +28,30 @@
           <table>
             <tr>
               <td>Model</td>
-              <td>{{ ship.model }}</td>
+              <td>{{ transport.model }}</td>
             </tr>
             <tr>
               <td>Crew</td>
-              <td>{{ ship.crew }}</td>
+              <td>{{ transport.crew }}</td>
             </tr>
             <tr>
               <td>Length</td>
-              <td>{{ ship.length }}</td>
+              <td>{{ transport.length }}</td>
             </tr>
             <tr>
               <td>Passenger</td>
-              <td>{{ ship.passengers }}</td>
+              <td>{{ transport.passengers }}</td>
             </tr>
             <tr>
               <td>Cargo capacity</td>
-              <td>{{ ship.cargo_capacity }}</td>
+              <td>{{ transport.cargo_capacity }}</td>
             </tr>
             <tr>
               <td>Cost</td>
-              <td>{{ ship.cost_in_credits }}</td>
+              <td>{{ transport.cost_in_credits }}</td>
             </tr>
           </table>
         </mat-card-content>
       </mat-card>
     </div>
   </ng-container>
-  
