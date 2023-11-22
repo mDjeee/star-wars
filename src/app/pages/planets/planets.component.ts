@@ -19,7 +19,7 @@ import { PlanetsFacade } from './store/facade';
         style({ opacity: 1, transform: "translateX(0)" }),
         animate(
           "600ms ease-in-out",
-          style({ opacity: 0, transform: "translateX(100%)" })
+          style({ opacity: 0, transform: "translateX(0) scale(0.9)" })
         )
       ])
     ])
