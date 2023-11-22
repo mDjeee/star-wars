@@ -1,1 +1,50 @@
-<p>planets works!</p>
+<ng-container *ngIf="(planetsFacade.planets$ | async) as response">
+    <mat-progress-bar *ngIf="response.loading" mode="indeterminate"></mat-progress-bar>
+  
+    <div class="controls">
+      <button
+        mat-raised-button
+        color="primary"
+        [disabled]="!response.previous"
+        (click)=" response.previous ? nextPeople(response.previous) : ''"
+      >Prev</button>
+      <button
+        mat-raised-button
+        color="primary"
+        [disabled]="!response.next"
+        (click)="response.next ? nextPeople(response.next) : ''"
+      >Next</button>
+    </div>
+  
+    <div *ngIf="!response.loading" class="container" @inOutPaneAnimation>
+      <mat-card *ngFor="let planet of response.planets" class="card">
+        <mat-card-header>
+          <mat-card-title>
+            {{ planet.name }}
+          </mat-card-title>
+        </mat-card-header>
+        <mat-divider></mat-divider>
+        <mat-card-content class="card__content">
+          <table>
+            <tr>
+              <td>Climate</td>
+              <td>{{ planet.climate }}</td>
+            </tr>
+            <tr>
+              <td>Diameter</td>
+              <td>{{ planet.diameter }}</td>
+            </tr>
+            <tr>
+              <td>Population</td>
+              <td>{{ planet.population }}</td>
+            </tr>
+            <tr>
+              <td>Terrain</td>
+              <td>{{ planet.terrain }}</td>
+            </tr>
+          </table>
+        </mat-card-content>
+      </mat-card>
+    </div>
+  </ng-container>
+  
