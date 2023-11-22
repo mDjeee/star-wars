@@ -1,6 +1,6 @@
 # StarWars
 
-Deploy of the app is accessable via this link: <a href="https://star-wars-mdjeee.netlify.app/" target="_blank">Link</a>
+Deploy of the app is accessable via this [link](https://star-wars-mdjeee.netlify.app/){:target="_blank"}
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.0.0.
 
