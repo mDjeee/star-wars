@@ -41,11 +41,16 @@ const routes: Routes = [
   {
     path: '',
     redirectTo: '/home',
-    pathMatch: 'full'
+    pathMatch: 'full',
+  },
+  {
+    path: 'not-found',
+    component: NotFoundComponent,
   },
   {
     path: '**',
-    component: NotFoundComponent,
+    redirectTo: '/not-found',
+    pathMatch: 'full'
   },
 ];
 
