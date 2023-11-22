@@ -9,10 +9,12 @@ import { SharedModule } from "./shared/shared.module";
 import { effects, reducers } from "./store";
 import { StoreModule } from "@ngrx/store";
 import { EffectsModule } from '@ngrx/effects';
+import { HomeComponent } from './pages/home/home.component';
 
 @NgModule({
   declarations: [
     AppComponent,
+    HomeComponent,
   ],
   imports: [
     BrowserModule,
