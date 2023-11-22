@@ -1,4 +1,8 @@
-<ng-container *ngIf="(shipsFacade.ships$ | async) as response">
+<div class="ships">
+  <div class="ship ship1"></div>
+  <div class="ship ship2"></div>
+  <div class="ship ship3"></div>
+  <ng-container *ngIf="(shipsFacade.ships$ | async) as response">
     <mat-progress-bar *ngIf="response.loading" mode="indeterminate"></mat-progress-bar>
   
     <div class="controls">
@@ -55,4 +59,4 @@
       </mat-card>
     </div>
   </ng-container>
-  
+</div>

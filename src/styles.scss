@@ -3,6 +3,12 @@
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; padding: 0; background-color: #f5f9e9}
 
+app-root {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
 * {
   margin: 0;
   padding: 0;

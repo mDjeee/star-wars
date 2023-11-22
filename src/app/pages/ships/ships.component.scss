@@ -1,3 +1,88 @@
+:host {
+  height: 100%;
+  background-image: url('../../../assets/ships.jpg');
+  background-position: 50% 50%;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.ships {
+  width: 100%;
+  height: 100%;
+  overflow: hidden !important;
+}
+
+.ship {
+  position: absolute;
+  width: 300px;
+  height: 300px;
+  background-position: 50% 50%;
+  background-size: contain;
+  background-repeat: no-repeat;
+  opacity: 0;
+}
+
+.ship1 {
+  background-image: url('../../../assets/ship-1.png');
+  animation: moveAround1 12s linear infinite;
+  animation-delay: 6s;
+}
+
+.ship2 {
+  background-image: url('../../../assets/ship-2.png');
+  animation: moveAround2 15s linear infinite;
+  animation-delay: 2s;
+}
+
+
+.ship3 {
+  background-image: url('../../../assets/ship-3.png');
+  animation: moveAround3 18s linear infinite;
+  animation-delay: 4s;
+}
+
+@keyframes moveAround1 {
+  0% { 
+    transform: translate(calc(100vw - 300px), 0) scale(0.1);
+    opacity: 1;
+  }
+  50% {
+    transform: translate(calc(50vw - 300px), calc(50vh - 300px)) scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: translate(0, calc(100vh - 500px));
+    opacity: 0;
+  }
+}
+
+@keyframes moveAround2 {
+  0% { 
+    transform: translate(calc(100vw - 300px), calc(100vh - 500px)) scale(0.1);
+    opacity: 1;
+  }
+  100% {
+    transform: translate(0, 0) scale(1);
+    opacity: 1;
+  }
+}
+
+
+@keyframes moveAround3 {
+  0% { 
+    transform: translate(0, calc(60vh - 300px)) scale(0.1);
+    opacity: 1;
+  }
+  90% {
+    transform: translate(calc(90vw - 300px), calc(60vh - 300px)) scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: translate(calc(100vw - 300px), calc(60vh - 300px)) scale(1);
+    opacity: 0;
+  }
+}
+
 .container {
     margin-top: 1rem;
     padding: 0 1rem;
